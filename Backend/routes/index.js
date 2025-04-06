@@ -36,5 +36,35 @@ router.delete('/habits/:id',async (req,res)=>{
 }
 });
 
+router.patch('/habits/markasdone/:id',async (req,res)=>{
+  try{
+    const habit = await Habit.findById(req.params.id);
+    habit.lastDone = new Date();
+    if (timeDifferenceInHours(habit.lastDone, habit.lastUpdate) <24){
+      habit.days = timeDifferenceInDays(habit.lastDone, habit.startedAt) +1;
+      habit.lastUpdate = new Date();
+      habit.save();
+      res.status(200).json({'message':'Habit marked as done'});
+    }	else{
+      habit.days=1;
+      habit.lastUpdate = new Date();
+      habit.save();
+      res.status(200).json({'message':'Habit restarted'});
+    }
+  }catch(err){
+    console.log(err);
+    res.status(500).json({message:'Habit not found'});
+  }
+});
+   
+const timeDifferenceInHours = (date1, date2) => {
+  const differenceMs = Math.abs(date1 - date2);
+  return differenceMs / (1000 * 60 * 60);
+}
+const timeDifferenceInDays = (date1, date2) => {
+  const differenceMs = Math.abs(date1 - date2);
+  return Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+}
+
 
 module.exports = router;

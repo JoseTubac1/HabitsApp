@@ -10,7 +10,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // Cambia esto a la URL de tu frontend
+  credentials: true // Permite el envío de cookies
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
