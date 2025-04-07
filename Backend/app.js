@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 app.use(cors({
-  origin: 'http://localhost:3000', // Cambia esto a la URL de tu frontend
+  origin: 'https://frontend-jrahe3e55-josets-projects-7c809a03.vercel.app/', // Cambia esto a la URL de tu frontend
   credentials: true // Permite el envío de cookies
 }));
 
@@ -41,7 +41,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json({'error':err});
 });
 
 module.exports = app;
