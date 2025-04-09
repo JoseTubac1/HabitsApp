@@ -1,5 +1,5 @@
 export const fetchHabits = async (token:string) => {
-    const response = await fetch("https://backend-3wlsw387d-josets-projects-7c809a03.vercel.app/habits",{
+    const response = await fetch("https://backend-1by45vymw-josets-projects-7c809a03.vercel.app/habits",{
     headers: {
     Authorization: 'Bearer '+token
     }
@@ -10,7 +10,7 @@ export const fetchHabits = async (token:string) => {
     return response;
 };   
     export const fetchAddHabit = async (token:string, title:string, description:string) => {
-    const response = await fetch("https://backend-3wlsw387d-josets-projects-7c809a03.vercel.app/habits",{
+    const response = await fetch("https://backend-1by45vymw-josets-projects-7c809a03.vercel.app/habits",{
     method: 'POST',
     headers:{
         Authorization: 'Bearer '+token,

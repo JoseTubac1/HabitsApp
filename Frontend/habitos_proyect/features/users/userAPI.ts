@@ -1,5 +1,5 @@
 export const fetchRegisterUser = async (username: string, password:string) =>{
-    const response = await fetch("https://backend-3wlsw387d-josets-projects-7c809a03.vercel.app/users/register", {
+    const response = await fetch("https://backend-1by45vymw-josets-projects-7c809a03.vercel.app/users/register", {
     method: 'POST',
     headers:{
         'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ if(!response.ok){
 
 
 export const fetchLoginUser = async (username: string, password:string) =>{
-    const response = await fetch("https://backend-3wlsw387d-josets-projects-7c809a03.vercel.app/users/login", {
+    const response = await fetch("https://backend-1by45vymw-josets-projects-7c809a03.vercel.app/users/login", {
     method: 'POST',
     credentials: 'include',
     headers:{
