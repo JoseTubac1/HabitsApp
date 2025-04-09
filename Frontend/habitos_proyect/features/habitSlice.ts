@@ -35,7 +35,7 @@ const initialState: HabitState = {
 }
 
 export const fetchHabitsThunk = createAsyncThunk("habit/fetchHabits",async (token:string, {rejectWithValue}) => {
-    return response = await fetchHabits(token);
+    const response = await fetchHabits(token);
     const responseJson = await response.json();
     if (!response.ok) {
         return rejectWithValue("Failed to fetch habits");
