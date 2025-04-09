@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 app.use(cors({
-  origin: 'https://frontend-jrahe3e55-josets-projects-7c809a03.vercel.app/', // Cambia esto a la URL de tu frontend
+  origin: 'https://frontend-7lb38im4s-josets-projects-7c809a03.vercel.app', // Cambia esto a la URL de tu frontend
   credentials: true // Permite el envío de cookies
 }));
 
